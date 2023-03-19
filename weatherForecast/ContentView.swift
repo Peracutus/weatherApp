@@ -8,14 +8,63 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selectedView = 1
+    @State private var isShowingDetailView = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        TabView(selection: $selectedView) {
+            VStack {
+                CircleNumberView(tabSelection: $selectedView, isShowingDetailView: $isShowingDetailView)
+            }
+            .tabItem {
+                Image(systemName: "1.circle")
+                Text("First")
+            }.tag(1)
+            SecondScreen(isShowingDetailView: $isShowingDetailView)
+                .navigationTitle("Second Tab name")
+                .tabItem {
+                    Image(systemName: "2.circle")
+                    Text("Second")
+                }.tag(2)
+            ThirdScreen()
+                .navigationTitle("Modal view")
+                .tabItem {
+                    Image(systemName: "3.circle")
+                    Text("Third")
+                }.tag(3)
         }
-        .padding()
+    }
+}
+
+struct CircleNumberView: View {
+    
+    @Binding var tabSelection: Int
+    @Binding var isShowingDetailView: Bool
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                ZStack {
+                    Circle()
+                        .frame(width: 200, height: 200)
+                        .foregroundColor(.red)
+                    Text("1")
+                        .foregroundColor(.white)
+                        .font(.system(size: 70, weight: .bold))
+                }
+                Button {
+                    tabSelection = 2
+                    isShowingDetailView = true
+                } label: {
+                    Text("Go to second \nwith chosen cell")
+                }
+                .buttonStyle(.borderedProminent)
+                .bold()
+                .cornerRadius(10)
+                .frame(width: 200)
+            }.navigationTitle("Red circle")
+        }.phoneOnlyStackNavigationView()
     }
 }
 
