@@ -13,26 +13,30 @@ struct ContentView: View {
     @State private var isShowingDetailView = false
     
     var body: some View {
-        TabView(selection: $selectedView) {
-            VStack {
-                CircleNumberView(tabSelection: $selectedView, isShowingDetailView: $isShowingDetailView)
+        NavigationViewController(transition: .custom(push: .slide, pop: .opacity)) {
+            TabView(selection: $selectedView) {
+                WeatherScreen()
+                    .tabItem {
+                        Label("Forecast", systemImage: "cloud.sun")
+                    }.tag(1)
+                SecondScreen(isShowingDetailView: $isShowingDetailView)
+                    .navigationTitle("Second Tab name")
+                    .tabItem {
+                        Image(systemName: "2.circle")
+                        Text("Second")
+                    }.tag(2)
+                ThirdScreen()
+                    .navigationTitle("Modal view")
+                    .tabItem {
+                        Image(systemName: "3.circle")
+                        Text("Third")
+                    }.tag(3)
+                NewsScreen()
+                    .navigationTitle("News View")
+                    .tabItem {
+                        Label("News", systemImage: "newspaper.fill")
+                    }.tag(4)
             }
-            .tabItem {
-                Image(systemName: "1.circle")
-                Text("First")
-            }.tag(1)
-            SecondScreen(isShowingDetailView: $isShowingDetailView)
-                .navigationTitle("Second Tab name")
-                .tabItem {
-                    Image(systemName: "2.circle")
-                    Text("Second")
-                }.tag(2)
-            ThirdScreen()
-                .navigationTitle("Modal view")
-                .tabItem {
-                    Image(systemName: "3.circle")
-                    Text("Third")
-                }.tag(3)
         }
     }
 }
@@ -59,8 +63,8 @@ struct CircleNumberView: View {
                 } label: {
                     Text("Go to second \nwith chosen cell")
                 }
-                .buttonStyle(.borderedProminent)
-                .bold()
+//                .buttonStyle(.borderedProminent)
+//                .bold()
                 .cornerRadius(10)
                 .frame(width: 200)
             }.navigationTitle("Red circle")

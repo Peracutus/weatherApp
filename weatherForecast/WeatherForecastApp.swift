@@ -13,6 +13,7 @@ struct WeatherForecastApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(PersonsViewModel())
+                .environmentObject(WeatherViewModel())
         }
     }
 }

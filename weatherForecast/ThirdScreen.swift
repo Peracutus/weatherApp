@@ -40,7 +40,6 @@ struct ModalView: View {
             .font(.title)
             .padding()
             .cornerRadius(10)
-            .background(.black)
         }
     }
 }
