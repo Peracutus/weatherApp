@@ -12,6 +12,7 @@ final class NewsViewModel: ObservableObject {
     
     @Published var newsDetails: [NewsArray] = []
     @Published var nextPage: String = ""
+    @Injected private var networkService: NewtworkAPIProtocol?
     
     var isLoading = false
     
@@ -21,7 +22,7 @@ final class NewsViewModel: ObservableObject {
     
     func loadNews(nextPage: String) {
         isLoading = true
-        NetworkAPI.shared.fetchNews(nextPage: nextPage) { [weak self] news, error   in
+        networkService?.fetchNews(nextPage: nextPage) { [weak self] news, error   in
             if error == nil {
                 self?.isLoading = false
                 self?.nextPage = news?.nextPage ?? ""

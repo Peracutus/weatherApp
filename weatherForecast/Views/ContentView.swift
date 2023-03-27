@@ -12,6 +12,10 @@ struct ContentView: View {
     @State private var selectedView = 1
     @State private var isShowingDetailView = false
     
+    init() {
+        Configurator.shared.setNetworkAPIService()
+    }
+    
     var body: some View {
         NavigationViewController(transition: .custom(push: .slide, pop: .opacity)) {
             TabView(selection: $selectedView) {
@@ -63,8 +67,6 @@ struct CircleNumberView: View {
                 } label: {
                     Text("Go to second \nwith chosen cell")
                 }
-//                .buttonStyle(.borderedProminent)
-//                .bold()
                 .cornerRadius(10)
                 .frame(width: 200)
             }.navigationTitle("Red circle")

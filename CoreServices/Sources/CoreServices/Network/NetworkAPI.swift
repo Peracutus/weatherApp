@@ -7,7 +7,12 @@
 
 import Foundation
 
-open class NetworkAPI {
+public protocol NewtworkAPIProtocol: AnyObject {
+    func fetchForecastData(location: String, responce: @escaping(ForecastModel?, Error?) -> Void)
+    func fetchNews(nextPage: String, responce: @escaping(NewsModel?, Error?) -> Void)
+}
+
+public final class NetworkAPI: NewtworkAPIProtocol {
     
     public static let shared = NetworkAPI()
     public init() {}

@@ -9,7 +9,6 @@ import SwiftUI
 import CoreServices
 import Foundation
 
-
 struct WeatherScreen: View {
     
     @State private var isChanged = false

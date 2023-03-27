@@ -14,6 +14,7 @@ final class WeatherViewModel: ObservableObject {
     var detailsForIOS13Grid: [[Daily]] = .init()
     @Published var forecastWeather: [ForecastModel] = .init()
     @Published var listTypeChoice = 0
+    @Injected private var networkService: NewtworkAPIProtocol?
     
     init() {
         loadWeather()
@@ -28,8 +29,8 @@ final class WeatherViewModel: ObservableObject {
         default:
             location = "moscow"
         }
-
-        NetworkAPI.shared.fetchForecastData(location: location) { [weak self] forecast, error   in
+        
+        networkService?.fetchForecastData(location: location) { [weak self] forecast, error  in
             if error == nil {
                 guard let details = forecast?.timelines.daily,
                       let forecast = forecast else { return }
