@@ -26,6 +26,12 @@
 		91D51C6829C9EA3100A58B2F /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51C6729C9EA3100A58B2F /* NavigationViewController.swift */; };
 		91D51C6A29C9F1C700A58B2F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51C6929C9F1C700A58B2F /* DetailView.swift */; };
 		91D51C6E29C9F41900A58B2F /* TempretureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D51C6D29C9F41900A58B2F /* TempretureScreen.swift */; };
+		91D8E84029D5C4B300963D94 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 91D8E83F29D5C4B300963D94 /* ComposableArchitecture */; };
+		91D8E84329D5C53800963D94 /* WeatherState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E84229D5C53800963D94 /* WeatherState.swift */; };
+		91D8E84529D5C5DB00963D94 /* WeatherActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E84429D5C5DB00963D94 /* WeatherActions.swift */; };
+		91D8E84729D5C62700963D94 /* WeatherEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E84629D5C62700963D94 /* WeatherEnvironment.swift */; };
+		91D8E84929D5C76900963D94 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E84829D5C76900963D94 /* Reducer.swift */; };
+		91D8E84B29D5D27100963D94 /* WeatherFluxScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E84A29D5D27100963D94 /* WeatherFluxScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +55,11 @@
 		91D51C6729C9EA3100A58B2F /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		91D51C6929C9F1C700A58B2F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		91D51C6D29C9F41900A58B2F /* TempretureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempretureScreen.swift; sourceTree = "<group>"; };
+		91D8E84229D5C53800963D94 /* WeatherState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherState.swift; sourceTree = "<group>"; };
+		91D8E84429D5C5DB00963D94 /* WeatherActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherActions.swift; sourceTree = "<group>"; };
+		91D8E84629D5C62700963D94 /* WeatherEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEnvironment.swift; sourceTree = "<group>"; };
+		91D8E84829D5C76900963D94 /* Reducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		91D8E84A29D5D27100963D94 /* WeatherFluxScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherFluxScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91D8E84029D5C4B300963D94 /* ComposableArchitecture in Frameworks */,
 				91AE85E029C7407600D79BA4 /* CoreServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +140,7 @@
 		91B6A84829C5AE3800C4948C /* weatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				91D8E84129D5C4E300963D94 /* FluxPattern */,
 				91ADCFB529CB5B7B004C65D8 /* ViewModel */,
 				91D51C6B29C9F3E100A58B2F /* Views */,
 				9153DB1A29C9C584000B68B6 /* NavigationStack */,
@@ -169,6 +182,18 @@
 			path = Weather;
 			sourceTree = "<group>";
 		};
+		91D8E84129D5C4E300963D94 /* FluxPattern */ = {
+			isa = PBXGroup;
+			children = (
+				91D8E84229D5C53800963D94 /* WeatherState.swift */,
+				91D8E84429D5C5DB00963D94 /* WeatherActions.swift */,
+				91D8E84629D5C62700963D94 /* WeatherEnvironment.swift */,
+				91D8E84829D5C76900963D94 /* Reducer.swift */,
+				91D8E84A29D5D27100963D94 /* WeatherFluxScreen.swift */,
+			);
+			path = FluxPattern;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +212,7 @@
 			name = weatherForecast;
 			packageProductDependencies = (
 				91AE85DF29C7407600D79BA4 /* CoreServices */,
+				91D8E83F29D5C4B300963D94 /* ComposableArchitecture */,
 			);
 			productName = weatherForecast;
 			productReference = 91B6A84629C5AE3800C4948C /* weatherForecast.app */;
@@ -216,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 91B6A83D29C5AE3800C4948C;
+			packageReferences = (
+				91D8E83E29D5C4B300963D94 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 91B6A84729C5AE3800C4948C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -243,12 +272,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				91B6A85829C5AF0300C4948C /* WeatherScreen.swift in Sources */,
+				91D8E84729D5C62700963D94 /* WeatherEnvironment.swift in Sources */,
 				91ADCFB729CB5BB1004C65D8 /* WeatherViewModel.swift in Sources */,
 				91B6A84C29C5AE3800C4948C /* ContentView.swift in Sources */,
 				91B6A84A29C5AE3800C4948C /* WeatherForecastApp.swift in Sources */,
 				91D51C6A29C9F1C700A58B2F /* DetailView.swift in Sources */,
 				91D51C6829C9EA3100A58B2F /* NavigationViewController.swift in Sources */,
+				91D8E84329D5C53800963D94 /* WeatherState.swift in Sources */,
 				91D51C6629C9E53D00A58B2F /* Types.swift in Sources */,
+				91D8E84B29D5D27100963D94 /* WeatherFluxScreen.swift in Sources */,
 				91C0097129CC2B3C00A76F5C /* NewsScreen.swift in Sources */,
 				91AE85DB29C64A3300D79BA4 /* ViewExtention.swift in Sources */,
 				91B6A85A29C5B1C400C4948C /* ThirdScreen.swift in Sources */,
@@ -257,6 +289,8 @@
 				91C0097329CC2B6200A76F5C /* NewsViewModel.swift in Sources */,
 				911B4FCF29CC5C5500C15CC0 /* ProgressBarModifier.swift in Sources */,
 				9153DB1C29C9C5B3000B68B6 /* CustomNavigationStack.swift in Sources */,
+				91D8E84529D5C5DB00963D94 /* WeatherActions.swift in Sources */,
+				91D8E84929D5C76900963D94 /* Reducer.swift in Sources */,
 				91D51C6E29C9F41900A58B2F /* TempretureScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,10 +493,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		91D8E83E29D5C4B300963D94 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		91AE85DF29C7407600D79BA4 /* CoreServices */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreServices;
+		};
+		91D8E83F29D5C4B300963D94 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91D8E83E29D5C4B300963D94 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

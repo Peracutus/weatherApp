@@ -25,14 +25,14 @@ public struct Timelines: Codable {
 }
 
 // MARK: - Daily
-public struct Daily: Codable, Identifiable {
+public struct Daily: Codable, Identifiable, Equatable {
     public let time: String
     public let values: Values
     public var id: String { time }
 }
 
 // MARK: - Values
-public struct Values: Codable {
+public struct Values: Codable, Equatable {
     public let moonriseTime, moonsetTime: String?
     public let sunriseTime, sunsetTime: String
     public let temperatureMax,temperatureAvg, temperatureMin: Double

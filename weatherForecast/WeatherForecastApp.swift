@@ -7,14 +7,15 @@
 
 import SwiftUI
 import CoreServices
+import ComposableArchitecture
 
 @main
 struct WeatherForecastApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(PersonsViewModel())
-                .environmentObject(WeatherViewModel())
+            WeatherFluxScreen(stateStore: Store(
+                initialState: Feature.State(),
+                reducer: Feature()))
         }
     }
 }
